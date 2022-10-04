@@ -8,7 +8,6 @@
 
     <script> 
     var id = 1;
-    
     function increaseID() {
         id ++;
         document.getElementById('timesClicked').innerHTML = id;
@@ -21,6 +20,34 @@
             id = id - 1;
         }
         document.getElementById('timesClicked').innerHTML = id;
+    }
+    function fetchPokemon(){
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+        .then(response => response.json())
+        .then(function(allpokemon){
+            allpkemon.results.forEach(function(pokemon){
+                fetchData(pokemon);
+            })
+        })
+    }
+    function fetchData(pokemon) {
+        let url = pokemon.url;
+        fetch(url).then(response => response.json()).then(function(pokeData){
+            console.log(pokeData);
+        })
+    }
+    function displayPokemon(pokeData) {
+        let allPokemonContainer = document.getElementById('poke-container');
+        let pokeContainer = document.createElement("div")
+        let pokeName = document.createElement('h4');
+        pokeName.innerText = pokeData.name
+        let pokeNumber = document.createElement('p')
+        pokeNumber.innerText = `#${pokeData.id}`
+        let pokeTypes = document.createElement('ul')
+        createTypes(pokeData.types, pokeTypes);
+        pokeContainer.append(pokeName, pokeNumber, pokeTypes);
+        allPokemonContainer.appendChild(pokeContainer);
+
     }
     </script>
 
