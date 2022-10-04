@@ -1,1 +1,42 @@
 <!DOCTYPE html>
+<html lang = "en">
+    <title> Bits of Good Mid-Semester Project </title>
+    <style>
+        h1{font-family:'Cochin'; text-align: center};
+    </style>
+
+
+    <script> 
+    var id = 1;
+    
+    function increaseID() {
+        id ++;
+        document.getElementById('timesClicked').innerHTML = id;
+        return true 
+    }
+    function decreaseID() {
+        if(id === 1) {
+            id = id;
+        } else {
+            id = id - 1;
+        }
+        document.getElementById('timesClicked').innerHTML = id;
+    }
+    </script>
+
+
+    <body>
+        <div class = "main">
+            <h1>Bits of Good Mid-Semester Project</h1>
+        </div>
+        <button type="button" class= "btn btn-default" onclick="javascript:decreaseID()"> < </button>
+        <button type="button" class= "btn btn-default" onclick="javascript:increaseID()"> > </button> 
+
+        <center>
+            <span id="timesClicked">1</span>
+        </center>
+    </body>
+
+
+</html>
+
