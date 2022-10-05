@@ -3,65 +3,38 @@
     <title> Bits of Good Mid-Semester Project </title>
     <style>
         h1{font-family:'Cochin'; text-align: center};
+        p{font-weight:bold; margin:auto 45px;}
+        .image{border: 2px solid black; width: 250px; margin:auto 45px;}
+        .block {
+            border: none;
+            background-color: lightgrey;
+            color: black;
+            padding: 4px 12px;
+            font-size: 32px;
+            cursor: pointer;
+            text-align: center;
+}
     </style>
-
-
-    <script> 
-    var id = 1;
-    function increaseID() {
-        id ++;
-        document.getElementById('timesClicked').innerHTML = id;
-        return true 
-    }
-    function decreaseID() {
-        if(id === 1) {
-            id = id;
-        } else {
-            id = id - 1;
-        }
-        document.getElementById('timesClicked').innerHTML = id;
-    }
-    function fetchPokemon(){
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-        .then(response => response.json())
-        .then(function(allpokemon){
-            allpkemon.results.forEach(function(pokemon){
-                fetchData(pokemon);
-            })
-        })
-    }
-    function fetchData(pokemon) {
-        let url = pokemon.url;
-        fetch(url).then(response => response.json()).then(function(pokeData){
-            console.log(pokeData);
-        })
-    }
-    function displayPokemon(pokeData) {
-        let allPokemonContainer = document.getElementById('poke-container');
-        let pokeContainer = document.createElement("div")
-        let pokeName = document.createElement('h4');
-        pokeName.innerText = pokeData.name
-        let pokeNumber = document.createElement('p')
-        pokeNumber.innerText = `#${pokeData.id}`
-        let pokeTypes = document.createElement('ul')
-        createTypes(pokeData.types, pokeTypes);
-        pokeContainer.append(pokeName, pokeNumber, pokeTypes);
-        allPokemonContainer.appendChild(pokeContainer);
-
-    }
-    </script>
-
 
     <body>
         <div class = "main">
             <h1>Bits of Good Mid-Semester Project</h1>
-        </div>
-        <button type="button" class= "btn btn-default" onclick="javascript:decreaseID()"> < </button>
-        <button type="button" class= "btn btn-default" onclick="javascript:increaseID()"> > </button> 
 
-        <center>
-            <span id="timesClicked">1</span>
-        </center>
+            <img id = "banner" src="" class = "image"/>
+
+            <p style ="font-weight: bold; margin:auto 115px; font-size: 150%"; id='name'> </p>
+
+            <p style ="font-weight: bold; margin:auto 45px; "> Types:</p>
+
+            <p id='types'></p>
+
+            <button style ="margin-left:70px; ";type="button" class= "block" onclick="decreaseID();fetchPokemon()"> < </button>
+
+            <button style ="margin-left: 15px;"; type="button" class= "block" onclick="increaseID(); fetchPokemon()"> > </button> 
+
+        </div>
+        
+        <script src = "main.js"> </script>
     </body>
 
 
