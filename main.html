@@ -1,45 +1,54 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <title> Bits of Good Mid-Semester Project </title>
-    <style>
-        h1{font-family:'Cochin'; text-align: center};
-        p{font-weight:bold; margin:auto 45px;}
-        .image{border: 2px solid black; width: 250px; margin:auto 45px;}
-        .block {
-            border: none;
-            background-color: lightgrey;
-            color: black;
-            padding: 4px 12px;
-            font-size: 32px;
-            cursor: pointer;
-            text-align: center;
-}
-    </style>
+<html lang="en">
+<title> Bits of Good Mid-Semester Project </title>
+<style>
+    h1 {
+        font-family: 'Cochin';
+        text-align: center;
+    }
 
-    <body>
-        <div class = "main">
-            <h1>Bits of Good Mid-Semester Project</h1>
+    ;
 
-            <img id = "banner" src="" class = "image"/>
+    p {
+        font-weight: bold;
+        margin: auto 45px;
+    }
 
-            <p style ="font-weight: bold; margin:auto 115px; font-size: 150%"; id='name'> </p>
+    .image {
+        border: 2px solid black;
+        width: 250px;
+        margin: auto 45px;
+    }
 
-            <p style ="font-weight: bold; margin:auto 45px; "> Types:</p>
+    .block {
+        border: none;
+        background-color: lightgrey;
+        color: black;
+        padding: 4px 12px;
+        font-size: 32px;
+        cursor: pointer;
+        text-align: center;
+    }
+</style>
 
-            <p id="type"></p>
+<body>
+    <div class="main">
+        <h1>Bits of Good Mid-Semester Project</h1>
+        <img id="banner" src="" class="image" />
+        <p style="font-weight: bold; margin:auto 115px; font-size: 150%" ; id='name'> </p>
+        <p style="font-weight: bold; margin:auto 45px; "> Types:</p>
+        <p id="type"></p>
+        <button style="margin-left:70px; " ;type="button" class="block" onclick="decreaseID();fetchPokemon();getInfo();getMoves()">
+            < </button>
+                <button style="margin-left: 15px;" ; type="button" class="block"
+                    onclick="increaseID(); fetchPokemon();getInfo();getMoves()"> > </button>
+                <h3> Info</h3>
+                <p id="info"> </p>
+                <h3> Moves</h3>
+                <p id="moves"> </p>
+    </div>
 
-            <button style ="margin-left:70px; ";type="button" class= "block" onclick="decreaseID();fetchPokemon();getInfo()"> < </button>
-
-            <button style ="margin-left: 15px;"; type="button" class= "block" onclick="increaseID(); fetchPokemon();getInfo()"> > </button> 
-
-            <h3> Info</h3>
-            <p id ="info"> </p>
-
-        </div>
-        
-        <script src = "main.js"> </script>
-    </body>
-
+    <script src="main.js"> </script>
+</body>
 
 </html>
-

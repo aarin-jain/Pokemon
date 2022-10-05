@@ -46,7 +46,19 @@ function info(data) {
     text+= "speed: " + (data.stats[5].base_stat) + "\n";
     document.getElementById("info").innerText = text;
 }
+function getMoves(){
+    fetch('https://pokeapi.co/api/v2/pokemon/'+id+'/').then(handleResponse).then(moves);
+}
+function moves(data){
+    let text="";
+    for(let i=0; i<data.moves.length;i++) {
+        text += data.moves[i].move.name;
+        text+="\n";
+    }
+        document.getElementById("moves").innerText = text;
+}
 fetchPokemon()
 getInfo()
+getMoves();
 
 
