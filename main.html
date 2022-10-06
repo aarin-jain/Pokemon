@@ -1,51 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<title> Bits of Good Mid-Semester Project </title>
-<style>
-    h1 {
-        font-family: 'Cochin';
-        text-align: center;
-    }
 
-    p {
-        font-weight: bold;
-        margin: auto 45px;
-    }
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title> Bits of Good Mid-Semester Project </title>
+    <style>
+        body {
+            font-family: 'Poppins';
+        }
 
-    .image {
-        border: 2px solid black;
-        width: 250px;
-        margin: auto 45px;
-    }
+        h1 {
+            text-align: center;
+        }
 
-    .block {
-        border: none;
-        background-color: lightgrey;
-        color: black;
-        padding: 4px 12px;
-        font-size: 32px;
-        cursor: pointer;
-        text-align: center;
-    }
-</style>
+        p {
+            margin: auto 45px;
+        }
+
+        .image {
+            border: 2px solid black;
+            width: 250px;
+            margin: auto 45px;
+        }
+
+        .block {
+            border: none;
+            background-color: lightgrey;
+            color: black;
+            padding: 4px 12px;
+            font-size: 32px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .MI {
+            margin-left: 300px;
+            border: none;
+            background-color: lightgrey;
+            color: black;
+            padding: 4px 12px;
+            font-size: 32px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: left;
+        }
+
+        .name {
+            font-weight: bold;
+            margin: auto 115px;
+            font-size: 150%;
+            background-color: lightgrey;
+            color: black;
+            padding: 4px 12px;
+            border-radius: 25px;
+        }
+        .types{
+            font-weight: bold; 
+            margin: auto 45px; 
+        }
+    </style>
+</head>
 
 <body>
     <div class="main">
         <h1>Bits of Good Mid-Semester Project</h1>
-        <img id="banner" src="" class="image" />
-        <p style="font-weight: bold; margin:auto 115px; font-size: 150%" ; id='name'> </p>
-        <p style="font-weight: bold; margin:auto 45px; "> Types:</p>
-        <p id="type"></p>
-        <button style="margin-left:70px; " ;type="button" class="block" onclick="decreaseID();fetchPokemon()"> < </button>
-        <button style="margin-left: 15px;" ; type="button" class="block"onclick="increaseID(); fetchPokemon()"> > </button>
-        <button type="button" class="block"onclick="getMoves()"> Moves </button>
-        <button type="button" class="block"onclick="getInfo()"> Info </button>
-       
-       
-        <h3 id = "info-header"></h3>
-        <p id="info"> </p>
-    </div>
+        <div class="main-container">
+            <div class="image-container">
+                <img id="banner" src="" class="image" />
+                <p id="name"; class ="name"> </p>
+                <p class ="types"> Types:</p>
+                <p id="type"></p>
+                <button style="margin-left:70px; " ;type="button" class="block" onclick="decreaseID();fetchPokemon()">< </button>
+                <button style="margin-left: 15px;" ; type="button" class="block" onclick="increaseID(); fetchPokemon()"> > </button>
+            </div>
+            <div class="info-container">
+                <h3 style="margin-left: 280px;" id="info-header"></h3>
+                <p style="margin-left: 70px;" id="info"> </p>
+            </div>
+        </div>
 
+
+
+
+        <button id="moves" ; type="button" class="MI" ; onclick="getMoves()"> Moves </button>
+        <button id="info2" ; style="margin-left: 15px;" type="button" class="block" ; onclick="getInfo()"> Info</button>
+    </div>
     <script src="main.js"> </script>
 </body>
 

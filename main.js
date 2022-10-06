@@ -1,4 +1,5 @@
 var id = 1;
+var num =0;
 function increaseID() {
     id ++;
     return true 
@@ -22,10 +23,18 @@ function displayImage(data) {
 function displayName(data) {
     document.getElementById('name').innerText = data.name;
     displayTypes(data);
+    if(num === 1) {
+        getInfo();
+       } else if(num === 2) {
+        getMoves();
+       }
 }
 function displayTypes(data){
-    const type = data.types.map(type => type.type.name).join(", ");
-    document.getElementById("type").innerText = type;
+    let text ="";
+    for(let i=0; i<data.types.length;i++) {
+        text += data.types[i].type.name + " ";
+    }
+    document.getElementById("type").innerText = text;
 }
 
 function fetchPokemon(){ 
@@ -46,6 +55,9 @@ function info(data) {
     text+= "speed: " + (data.stats[5].base_stat) + "\n";
     document.getElementById("info").innerText = text;
     document.getElementById("info-header").innerText = "Info";
+    document.getElementById("moves").style.backgroundColor="lightgrey";
+    document.getElementById("info2").style.backgroundColor="lime";
+    num = 1;
 }
 function getMoves(){
     fetch('https://pokeapi.co/api/v2/pokemon/'+id+'/').then(handleResponse).then(moves);
@@ -54,10 +66,17 @@ function moves(data){
     let text="";
     for(let i=0; i<data.moves.length;i++) {
         text += data.moves[i].move.name;
-        text+="\n";
+        text+="; ";
     }
         document.getElementById("info").innerText = text;
         document.getElementById("info-header").innerText = "Moves";
+        document.getElementById("info").style.backgroundColor = "lightgrey"; 
+        document.getElementById("info").style.color = "black";
+        document.getElementById("info").style.padding = "15px 20px";
+        document.getElementById("info").style.paddingBottom="60px";
+        document.getElementById("moves").style.backgroundColor="lime";
+        document.getElementById("info2").style.backgroundColor="lightgrey";
+        num =2;
 }
 fetchPokemon()
 
