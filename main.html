@@ -7,8 +7,6 @@
         text-align: center;
     }
 
-    ;
-
     p {
         font-weight: bold;
         margin: auto 45px;
@@ -38,14 +36,16 @@
         <p style="font-weight: bold; margin:auto 115px; font-size: 150%" ; id='name'> </p>
         <p style="font-weight: bold; margin:auto 45px; "> Types:</p>
         <p id="type"></p>
-        <button style="margin-left:70px; " ;type="button" class="block" onclick="decreaseID();fetchPokemon();getInfo();getMoves()">
-            < </button>
-                <button style="margin-left: 15px;" ; type="button" class="block"
-                    onclick="increaseID(); fetchPokemon();getInfo();getMoves()"> > </button>
-                <h3> Info</h3>
-                <p id="info"> </p>
-                <h3> Moves</h3>
-                <p id="moves"> </p>
+        <button style="margin-left:70px; " ;type="button" class="block" onclick="decreaseID();fetchPokemon()"> < </button>
+        <button style="margin-left: 15px;" ; type="button" class="block"onclick="increaseID(); fetchPokemon()"> > </button>
+        <button type="button" class="block"onclick="getMoves()"> Moves </button>
+        <button type="button" class="block"onclick="getInfo()"> Info </button>
+       
+       
+        <h3 id = "info-header"> Info</h3>
+        <p id="info"> </p>
+        <h3 id = "moves-header"> Moves</h3>
+        <p id="moves"> </p>
     </div>
 
     <script src="main.js"> </script>
