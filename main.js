@@ -45,6 +45,7 @@ function info(data) {
     text+= "special-defense: " + (data.stats[4].base_stat) + "\n";
     text+= "speed: " + (data.stats[5].base_stat) + "\n";
     document.getElementById("info").innerText = text;
+    document.getElementById("info-header").innerText = "Info";
 }
 function getMoves(){
     fetch('https://pokeapi.co/api/v2/pokemon/'+id+'/').then(handleResponse).then(moves);
@@ -55,10 +56,9 @@ function moves(data){
         text += data.moves[i].move.name;
         text+="\n";
     }
-        document.getElementById("moves").innerText = text;
+        document.getElementById("info").innerText = text;
+        document.getElementById("info-header").innerText = "Moves";
 }
 fetchPokemon()
-getInfo()
-getMoves();
 
 
