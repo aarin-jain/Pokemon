@@ -5,17 +5,9 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title> Bits of Good Mid-Semester Project </title>
     <style>
-        body {
-            font-family: 'Poppins';
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        p {
-            margin: auto 45px;
-        }
+        body {font-family: 'Poppins';}
+        h1 {text-align: center;}
+        p { margin: auto 45px;}
 
         .image {
             border: 4px solid #000000;
@@ -27,12 +19,12 @@
             margin: auto 45px;
         }
         .name {
+            border: 1px solid #000000;
             margin: auto 115px;
             background-color: #E8E8E8;
             color: black;
             padding: 4px 12px;
             border-radius: 10px;
-            border: 1px solid #000000;
             position: absolute;
             width: 463px;
             height: 67px;
@@ -93,7 +85,7 @@
             border-radius: 10px;
 
         }
-        .MI {
+        .movesButton {
             margin-left: 300px;
             border: none;
             background-color: #E8E8E8;
@@ -196,10 +188,9 @@
 <body>
     <div class="main">
         <h1 class="title">Bits of Good Mid-Semester Project</h1>
-
         <div class="main-container">
             <div class="image-container">
-                <img id="banner" src="" class="image" />
+                <img id="pokemon" src="" class="image" />
                 <p id="name"; class ="name"> </p>
                 <p class ="types"> Types:</p>
             <div class ="types-container"> 
@@ -207,16 +198,16 @@
                 <p id="type2"; class = "types-real2"></p>
             </div>
                 <br>
-                <button type="button" class="leftButton" onclick="decreaseID();fetchPokemon()">< </button>
-                <button type="button" class="rightButton" onclick="increaseID(); fetchPokemon()"> > </button>
+                <button class="leftButton" onclick="decreaseID();fetchPokemon()">< </button>
+                <button class="rightButton" onclick="increaseID(); fetchPokemon()"> > </button>
             </div>
             <div class="info-container">
                 <h3 class ="info-header"; id="info-header"></h3>
-                <p class ="info-text"; id="info"> </p>
+                <p class ="info-text"; id="info-body"> </p>
             </div>
         </div>
-        <button id="moves"; class="MI";type="button"; onclick="getMoves()"> Moves </button>
-        <button id="info2"; class="infoButton" ; onclick="getInfo()"> Info</button>
+        <button id="moves"; class="movesButton"; onclick="getMoves()"> Moves </button>
+        <button id="info"; class="infoButton" ; onclick="getInfo()"> Info</button>
     </div>
     <script src="main.js"> </script>
 </body>

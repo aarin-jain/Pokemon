@@ -1,5 +1,5 @@
 var id = 1;
-var num =0;
+var display = 0;
 function increaseID() {
     id ++;
     return true 
@@ -16,27 +16,27 @@ function handleResponse(response){
 }
 function displayImage(data) {
     console.log(data);
-    const img = document.getElementById("banner");
+    const img = document.getElementById("pokemon");
     img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + id + ".png";
    displayName(data);
 }
 function displayName(data) {
     document.getElementById('name').innerText = data.name;
     displayTypes(data);
-    if(num === 1) {
+    if(display === 1) {
         getInfo();
-       } else if(num === 2) {
+    } else if(display === 2) {
         getMoves();
        }
 }
 function displayTypes(data){
-    let x = 1;
+    let whichType = 1;
     document.getElementById("type1").innerText = "";
     document.getElementById("type2").innerText = "";
     document.getElementById("type1").style.backgroundColor = "white";
     document.getElementById("type2").style.backgroundColor = "white";
     for(let i=0; i<data.types.length;i++) {
-        if(x == 1) {
+        if(whichType == 1) {
             document.getElementById("type1").innerText = data.types[i].type.name;
             if(data.types[i].type.name  === "fire") {document.getElementById("type1").style.backgroundColor = "#EE8130";}
             else if(data.types[i].type.name  === "normal") {document.getElementById("type1").style.backgroundColor = "#A8A77A";}
@@ -56,7 +56,7 @@ function displayTypes(data){
             else if(data.types[i].type.name  === "dark") {document.getElementById("type1").style.backgroundColor = "#705746";}
             else if(data.types[i].type.name  === "steel") {document.getElementById("type1").style.backgroundColor = "#B7B7CE";}
             else if(data.types[i].type.name  === "fairy") {document.getElementById("type1").style.backgroundColor = "#D685AD";}
-            x++;
+            whichType++;
         } else {
             document.getElementById("type2").innerText = data.types[i].type.name;
             if(data.types[i].type.name  === "fire") {document.getElementById("type2").style.backgroundColor = "#EE8130";}
@@ -79,9 +79,7 @@ function displayTypes(data){
             else if(data.types[i].type.name  === "fairy") {document.getElementById("type2").style.backgroundColor = "#D685AD";}
         }
     }
-    
 }
-
 function fetchPokemon(){ 
     fetch('https://pokeapi.co/api/v2/pokemon/'+id+'/').then(handleResponse).then(displayImage);
 }
@@ -98,34 +96,32 @@ function info(data) {
     text+= "special-attack: " + (data.stats[3].base_stat) + "\n";
     text+= "special-defense: " + (data.stats[4].base_stat) + "\n";
     text+= "speed: " + (data.stats[5].base_stat) + "\n";
-    document.getElementById("info").innerText = text;
+    document.getElementById("info-body").innerText = text;
     document.getElementById("info-header").innerText = "Info";
     document.getElementById("moves").style.backgroundColor="#E8E8E8";
-    document.getElementById("info2").style.backgroundColor="#7CFF79";
-    document.getElementById("info").style.fontWeight="400";
-    document.getElementById("info").style.fontSize="36px";
-    document.getElementById("info").style.lineHeight="44px";
-    num = 1;
+    document.getElementById("info").style.backgroundColor="#7CFF79";
+    document.getElementById("info-body").style.fontWeight="400";
+    document.getElementById("info-body").style.fontSize="36px";
+    document.getElementById("info-body").style.lineHeight="44px";
+    display = 1;
 }
 function getMoves(){
     fetch('https://pokeapi.co/api/v2/pokemon/'+id+'/').then(handleResponse).then(moves);
 }
 function moves(data){
     let text="";
-    for(let i=0; i<data.moves.length;i++) {
+    for(let i = 0; i<data.moves.length;i++) {
         text += data.moves[i].move.name;
         text+="; ";
     }
-        document.getElementById("info").innerText = text;
+        document.getElementById("info-body").innerText = text;
         document.getElementById("info-header").innerText = "Moves";
-        document.getElementById("info").style.backgroundColor = "#E8E8E8"; 
-        document.getElementById("info").style.color = "black";
+        document.getElementById("info-body").style.backgroundColor = "#E8E8E8"; 
+        document.getElementById("info-body").style.color = "black";
         document.getElementById("moves").style.backgroundColor="#7CFF79";
-        document.getElementById("info2").style.backgroundColor="#E8E8E8";
-        document.getElementById("info").style.fontSize="16px";
-        document.getElementById("info").style.lineHeight="120%";
-        num =2;
+        document.getElementById("info").style.backgroundColor="#E8E8E8";
+        document.getElementById("info-body").style.fontSize="16px";
+        document.getElementById("info-body").style.lineHeight="120%";
+        display = 2;
 }
 fetchPokemon()
-
-
