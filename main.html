@@ -18,49 +18,164 @@
         }
 
         .image {
-            border: 2px solid black;
-            width: 250px;
+            border: 4px solid #000000;
+            position: absolute;
+            width: 463px;
+            height: 463px;
+            left: 129px;
+            top: 165px;
             margin: auto 45px;
         }
-
-        .block {
+        .name {
+            margin: auto 115px;
+            background-color: #E8E8E8;
+            color: black;
+            padding: 4px 12px;
+            border-radius: 10px;
+            border: 1px solid #000000;
+            position: absolute;
+            width: 463px;
+            height: 67px;
+            left: 55px;
+            top: 659px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 44px;
+            text-align: center; 
+            padding: 4px 12px;
+        }
+        .leftButton {
             border: none;
-            background-color: lightgrey;
+            background-color: #E8E8E8;
             color: black;
             padding: 4px 12px;
             font-size: 32px;
             cursor: pointer;
             text-align: center;
+            margin-left:70px;
+            position: absolute;
+            width: 173px;
+            height: 69px;
+            left: 166px;
+            top: 898px;
         }
+        .rightButton {
+            border: none;
+            background-color: #E8E8E8E8;
+            color: black;
+            padding: 4px 12px;
+            font-size: 32px;
+            cursor: pointer;
+            text-align: center;
+            margin-left: 15px;
+            position: absolute;
+            width: 173px;
+            height: 69px;
+            left: 555px;
+            top: 898px;
+        }
+        .infoButton{
+            border: none;
+            background-color: #E8E8E8;
+            color: black;
+            padding: 4px 12px;
+            font-size: 32px;
+            cursor: pointer;
+            text-align: center;
+            position: absolute;
+            width: 173px;
+            height: 69px;
+            left: 886px;
+            top: 902px;
+            border-radius: 10px;
 
+        }
         .MI {
             margin-left: 300px;
             border: none;
-            background-color: lightgrey;
+            background-color: #E8E8E8;
             color: black;
             padding: 4px 12px;
             font-size: 32px;
             cursor: pointer;
             text-align: center;
+            position: absolute;
+            width: 173px;
+            height: 69px;
+            left: 929px;
+            top: 902px;
+            border-radius: 10px;
         }
 
         .main-container {
             display: flex;
             align-items: left;
         }
-
-        .name {
-            font-weight: bold;
-            margin: auto 115px;
-            font-size: 150%;
-            background-color: lightgrey;
-            color: black;
-            padding: 4px 12px;
-            border-radius: 25px;
+        .types-container {
+            display: flex;
+            align-items: left;
         }
+
         .types{
-            font-weight: bold; 
-            margin: auto 45px; 
+            position: absolute;
+            width: 79px;
+            height: 29px;
+            left: 129px;
+            top: 768px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 29px;
+        }
+        .types-real1{
+            position: absolute;
+            width: 117px;
+            height: 41px;
+            left: 129px;
+            top: 815px;
+            border-radius: 10px;
+            text-align: center;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 29px;
+            padding: 4px 12px;
+        }
+        .types-real2{
+            position: absolute;
+            width: 117px;
+            height: 41px;
+            left: 285px;
+            top: 815px;
+            border-radius: 10px;
+            text-align: center;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 29px;
+            padding: 4px 12px;
+        }
+        .info-header{
+            position: absolute;
+            width: 68px;
+            height: 44px;
+            left: 1047px;
+            top: 143px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 44px;
+        }
+        .info-text{
+            position: absolute;
+            width: 486px;
+            height: 598px;
+            left: 838px;
+            top: 223px;
+            background: #E8E8E8;
+            font-style: normal;
+            padding: 12px 24px;
         }
     </style>
 </head>
@@ -68,26 +183,27 @@
 <body>
     <div class="main">
         <h1>Bits of Good Mid-Semester Project</h1>
+
         <div class="main-container">
             <div class="image-container">
                 <img id="banner" src="" class="image" />
                 <p id="name"; class ="name"> </p>
                 <p class ="types"> Types:</p>
-                <p id="type"></p>
-                <button style="margin-left:70px; " ;type="button" class="block" onclick="decreaseID();fetchPokemon()">< </button>
-                <button style="margin-left: 15px;" ; type="button" class="block" onclick="increaseID(); fetchPokemon()"> > </button>
+            <div class ="types-container"> 
+                <p id="type1"; class = "types-real1"></p>
+                <p id="type2"; class = "types-real2"></p>
+            </div>
+                <br>
+                <button type="button" class="leftButton" onclick="decreaseID();fetchPokemon()">< </button>
+                <button type="button" class="rightButton" onclick="increaseID(); fetchPokemon()"> > </button>
             </div>
             <div class="info-container">
-                <h3 style="margin-left: 280px;" id="info-header"></h3>
-                <p style="margin-left: 70px;" id="info"> </p>
+                <h3 class ="info-header"; id="info-header"></h3>
+                <p class ="info-text"; id="info"> </p>
             </div>
         </div>
-
-
-
-
-        <button id="moves" ; type="button" class="MI" ; onclick="getMoves()"> Moves </button>
-        <button id="info2" ; style="margin-left: 15px;" type="button" class="block" ; onclick="getInfo()"> Info</button>
+        <button id="moves"; class="MI";type="button"; onclick="getMoves()"> Moves </button>
+        <button id="info2"; class="infoButton" ; onclick="getInfo()"> Info</button>
     </div>
     <script src="main.js"> </script>
 </body>
